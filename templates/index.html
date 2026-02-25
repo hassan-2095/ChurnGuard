@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-text">
+        <h1>Customer Retention <br><span class="highlight">Intelligence</span></h1>
+        <p>Predict churn probability with 86% accuracy using our Neural Network.</p>
+    </div>
+</section>
+
+<div class="dashboard-container">
+    <div class="card form-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h2>Customer Profile</h2>
+            <button type="button" id="random-btn" style="background: #333; color: white; border: 1px solid gray; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
+                🎲 Random Data
+            </button>
+        </div>
+        
+        <form id="prediction-form">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Credit Score</label>
+                    <input type="number" id="credit_score" value="600" required>
+                </div>
+                <div class="input-group">
+                    <label>Geography</label>
+                    <select id="geography">
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Spain">Spain</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select id="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number" id="age" value="40" required>
+                </div>
+                <div class="input-group">
+                    <label>Tenure (Years)</label>
+                    <input type="number" id="tenure" value="3" required>
+                </div>
+                <div class="input-group">
+                    <label>Balance ($)</label>
+                    <input type="number" id="balance" value="60000" required>
+                </div>
+                <div class="input-group">
+                    <label>Num of Products</label>
+                    <input type="number" id="num_of_products" value="2" required>
+                </div>
+                <div class="input-group">
+                    <label>Est. Salary ($)</label>
+                    <input type="number" id="estimated_salary" value="50000" required>
+                </div>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="has_cr_card" checked> Has Credit Card</label>
+                    <label><input type="checkbox" id="is_active_member" checked> Active Member</label>
+                </div>
+            </div>
+            <button type="submit" class="btn-primary">Analyze Risk</button>
+        </form>
+    </div>
+
+    <div class="card result-card" id="result-section" style="display: none;">
+        <h2>Analysis Report</h2>
+        
+        <div class="score-container">
+            <div class="gauge-wrapper" id="gauge-ring">
+                <div class="gauge-text">
+                    <h1 id="prob-text">0%</h1>
+                </div>
+            </div>
+            <h3 id="churn-status">Analyzing...</h3>
+        </div>
+
+        <div class="recommendations">
+            <h3>🚀 Retention Strategy</h3>
+            <ul id="rec-list">
+            </ul>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="importanceChart"></canvas>
+        </div>
+    </div>
+</div>
+{% endblock %}

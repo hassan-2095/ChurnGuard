@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="margin: 5%;">
+    <h1>Add New Insight</h1>
+    <form>
+        <div class="input-group" style="margin-bottom: 1rem;">
+            <label>Title</label>
+            <input type="text" placeholder="e.g. Q3 Churn Trends">
+        </div>
+        <div class="input-group" style="margin-bottom: 1rem;">
+            <label>Content</label>
+            <textarea style="background:#0b0e14; border:1px solid #2d3748; color:white; padding:10px; border-radius:8px; height:150px; width:100%;"></textarea>
+        </div>
+        <button class="btn-primary">Publish Insight</button>
+    </form>
+</div>
+{% endblock %}
